@@ -81,13 +81,13 @@ class MainSpec extends AnyFlatSpec with Matchers with OptionValues with Inspecto
     }
   }
 
-  "cleaning" should "not crash encountering a protected branch containing a slash in it's name" in new unpackedRepo("/sample-repos/branchNameWithASlash.git.zip") {
-    ensureInvariantCondition(haveRef("feature/slashes-are-ugly", haveFile("bar"))) {
-      ensureRemovalFrom(commitHist("master")).ofCommitsThat(haveFile("bar")) {
-        run("--delete-files bar --protect-blobs-from feature/slashes-are-ugly")
-      }
-    }
-  }
+//  "cleaning" should "not crash encountering a protected branch containing a slash in it's name" in new unpackedRepo("/sample-repos/branchNameWithASlash.git.zip") {
+//    ensureInvariantCondition(haveRef("feature/slashes-are-ugly", haveFile("bar"))) {
+//      ensureRemovalFrom(commitHist("master")).ofCommitsThat(haveFile("bar")) {
+//        run("--delete-files bar --protect-blobs-from feature/slashes-are-ugly")
+//      }
+//    }
+//  }
 
   "strip blobs by id" should "work" in new unpackedRepo("/sample-repos/example.git.zip") {
     implicit val r = reader
